@@ -20,10 +20,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       p.cpus = 1
     end
 
+    # Set folder into vagrant machine
     core.vm.synced_folder "/home/depruebas/Dropbox/AdyMaNet/Entornos/vagrant-pruebas/Ubuntu20.04-nginx-php/vagrant/", "/home/vagrant/data/", nfs: true
 
   end
 
+  # Execute script to install and configure nginx and php
   config.vm.provision "shell", path: "vagrant/install-nginx-php.sh"
 
 end
